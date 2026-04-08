@@ -1,0 +1,170 @@
+body {
+  background-color: pink;
+  text-align: center;
+}
+html {
+  scroll-behavior: smooth;
+}
+* {
+  box-sizing: border-box;
+}
+#list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.taskManager {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  width: fit-content;
+  padding: 8px 12px;
+  background-color: #eee;
+  border-radius: 8px;
+  align: center;
+  width: 100%;
+  margin: 0;
+  margin-bottom: 5px;
+  border: 1px solid;
+  transition: all 0.2s ease;
+  will-change: transform;
+}
+.deleteBtn {
+  background: #ff0000;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  display: none;
+}
+.taskManagerCompleted {
+  justify-content: space-between;
+  display: flex;
+  list-style: none;
+  width: fit-content;
+  padding: 8px 12px;
+  background-color: #cacaca;
+  color: #3f3e3e;
+  border-radius: 8px;
+  align: center;
+  width: 100%;
+  margin: 0;
+  margin-bottom: 5px;
+  border: 1px solid;
+  transition: all 0.2s ease;
+  will-change: transform;
+}
+.taskManagerCompleted span {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+.taskManager span,
+.taskManagerCompleted span {
+  word-break: break-word;
+  overflow-wrap: break-word;
+  flex: 1;
+  text-align: left;
+}
+.taskManager,
+.taskManagerCompleted {
+  --scale: 1;
+  transform: scale(var(--scale));
+  transition: transform 0.2s ease;
+  box-sizing: border-box;
+  font-size: 18px;
+}
+.taskManager:hover,
+.taskManagerCompleted:hover {
+  background-color: #ddd;
+  cursor: pointer;
+  --scale: 1.03;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+.shake {
+  animation: shake 0.4s ease;
+}
+
+@keyframes shake {
+  0% {
+    transform: scale(var(--scale)) translateX(0);
+  }
+  20% {
+    transform: scale(var(--scale)) translateX(-6px);
+  }
+  40% {
+    transform: scale(var(--scale)) translateX(6px);
+  }
+  60% {
+    transform: scale(var(--scale)) translateX(-4px);
+  }
+  80% {
+    transform: scale(var(--scale)) translateX(4px);
+  }
+  100% {
+    transform: scale(var(--scale)) translateX(0);
+  }
+}
+/* show button on hover */
+.taskManager:hover .deleteBtn,
+.taskManagerCompleted:hover .deleteBtn {
+  display: inline-block;
+}
+.deleteBtn:hover {
+  background: #b70101;
+}
+.taskManagerLabel {
+}
+.board {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+  padding: 0 30px;
+}
+.column {
+  padding: 0;
+  margin: 0;
+  width: 280px;
+  min-height: 300px;
+  width: 300px;
+  max-width: 90vw;
+  flex: 1;
+  border: 3px solid #42d56c;
+}
+.taskBoardLabel {
+  margin-bottom: 0px;
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+  border: 3px solid #42d56c;
+  padding: 8px 12px;
+}
+#activeList,
+#completedList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+#addBtn {
+  background-color: #42d56c;
+  border: none;
+  color: #7a0049;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+}
+#addBtn:hover {
+  background-color: #2d8c48;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+#taskInput {
+  padding: 5px 10px;
+}
